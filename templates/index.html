@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block title %} Home {% endblock title %} {% block
+body %}
+<div class="container my-3">
+  <h2 class="text-center mt-3">Youtube video Downloader</h2>
+  <form action="/" method="POST">
+    <div class="my-5">
+      <input
+        type="text"
+        class="form-control"
+        id="youtube_link"
+        placeholder="Paste Youtube link"
+        name="youtube_link"
+      />
+    </div>
+
+    <div class="my-5">
+      <select
+        class="form-select form-select-sm"
+        aria-label=".form-select-sm example"
+        name="disk_link"
+        id="disk_link"
+      >
+        <option selected>Select disk</option>
+        <option id="disk_link" value="F:/">F:/</option>
+        <option id="disk_link" value="C:/">C:/</option>
+        <option id="disk_link" value="D:/">D:/</option>
+        <option id="disk_link" value="E:/">E:/</option>
+      </select>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-outline-dark"
+      id="btnFetch"
+      onclick="this.classList.toggle('button--loading')"
+    >
+      <span class="button__text">Download</span>
+    </button>
+  </form>
+
+  {% endblock body %}
+</div>

@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block title %} About {% endblock title %} {% block
+body %}
+
+<div class="smoothSlideContainer">
+  <div class="bar" id="bar1"></div>
+  <div class="bar" id="bar2"></div>
+  <div class="bar" id="bar3"></div>
+  <div class="bar" id="bar4"></div>
+  <div class="bar2" id="bar5"></div>
+  <div class="bar" id="bar6"></div>
+  <div class="bar2" id="bar7"></div>
+  <div class="bar2" id="bar8"></div>
+  <div id="person">
+    <img
+      id="imgModule"
+      src="{{url_for('static', filename='images/pic.jpg')}}"
+    />
+  </div>
+</div>
+
+<script>
+  var peopleList = ["{{url_for('static', filename='images/pic2.jpg')}}"];
+  var indexLength = peopleList.length;
+  var currIndex = 0;
+  document.getElementById("person").addEventListener(
+    "animationiteration",
+    function () {
+      document.getElementById("imgModule").src = peopleList[currIndex];
+      if (currIndex < indexLength - 1) {
+        currIndex++;
+      } else {
+        currIndex = 0;
+      }
+    },
+    false
+  );
+</script>
+
+{% endblock body %}
